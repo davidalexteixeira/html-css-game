@@ -35,7 +35,8 @@ function main () {
         mainElement.appendChild(splashElement);
         //@todo create a button
 
-        startGameButton = document.createElement('button')
+        startGameButton = document.createElement('button');
+        startGameButton.setAttribute('id', 'button');
         startGameButton.innerText = 'Fight!';
         splashElement.appendChild(startGameButton); 
 
@@ -94,7 +95,6 @@ function main () {
 
         var endTitle = document.createElement('h1');
         endTitle.innerText = 'GAME OVER';
-
         gameOverElement.appendChild(endTitle);
 
         var endElement = document.querySelector('#site-main');
@@ -103,6 +103,7 @@ function main () {
 
         gameOverButton = document.createElement('button')
         gameOverButton.innerText = 'Continue?';
+        gameOverButton.setAttribute('id', 'button')
         gameOverElement.appendChild(gameOverButton); 
 
         gameOverButton.addEventListener('click', handleGameOverClick);
