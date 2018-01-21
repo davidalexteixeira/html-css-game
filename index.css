@@ -1,3 +1,7 @@
+body, div{
+    border: 1px solid red;
+}
+
 /* ---- reset ---- */
 
 html {
@@ -9,12 +13,15 @@ html {
   
   body{
       margin: 0;
-  }
+      
+    }
   
   
   /* ---- typography ---- */
   
-  body {}
+  body {
+    height: 600px;
+  }
   
   h1 {}
   
@@ -31,8 +38,23 @@ html {
   
   #site-footer {}
   
-  #site-main {}
+  #site-main {
+      color: black;
+      height: 100%;
+
+  }
   
+  #splash {
+      text-align: center;
+      background-image: url('/home/david/Documents/Ironhack/Project stuff/start stage.jpg');
+      background-size: cover;
+      height: 100%;
+      background-size: 100% 100%;
+  }
+
+  #game-over{
+      text-align: center;
+  }
   
   
   
