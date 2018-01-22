@@ -1,45 +1,51 @@
 'use strict';
 
 
-function Game (gameElement, end){
+function Game (gameElement){
     this.gameElement = gameElement;
     this.fightButtonOneElement;
-    this.fightButtonTwoElement;
-    this.gameIsOver = false;
     this.characterOne;
     this.characterTwo;
     this.healthBar1;
     this.healthBar2;
     this.onEnded;
+    this.battle;
+
+    this.init();
 }
 
-var goku = new Goku ();
+Game.prototype.init = function() {
+    var self = this;
 
-var broly = new Broly ();
+    self.buildStage();
+    self.startGame();
+}
 
-var battle = new Battle (goku, broly)
+Game.prototype.startGame = function() {
+    var goku = new Goku ();
+    var broly = new Broly ();
+    
+    this.battle = new Battle (goku, broly)
+}
 
-Game.prototype.gameIsOver = function () {
+
+Game.prototype.checkIfIsOver = function () {
     var self = this; 
 
-    if(goku.isDead === true) {
-        self.gameIsOver = true;
-        self.onEnded();
+    if(self.battle.playerOne.isDead) {
+        self.onEnded(self.battle.playerOne.name);
+    } else if (self.battle.playerTwo.isDead){
+        self.onEnded(self.battle.playerTwo.name);
     }
-
 }
 
-Game.prototype.attackOneClick = function () {
-   var self = this; 
-   battle.attackPlayer(1);
-   self.gameIsOver();
+Game.prototype.attackClick = function () {
+    var self = this;
+    self.battle.attack();
+    self.checkIfIsOver();
+    self.battle.updateTurn();
 };
 
-Game.prototype.attackTwoClick = function () {
-    var self = this;
-    battle.attackPlayer(2);
-    self.gameIsOver();
-};
 
 Game.prototype.buildStage = function() {
     var self = this;
@@ -49,18 +55,20 @@ Game.prototype.buildStage = function() {
     self.fightButtonOneElement.innerText = 'Attack One';
     self.gameElement.appendChild(self.fightButtonOneElement);
 
-    self.fightButtonTwoElement = document.createElement('button');
-    self.fightButtonTwoElement.setAttribute('id', 'fight-two');
-    self.fightButtonTwoElement.innerText ='Attack Two';
-    self.gameElement.appendChild(self.fightButtonTwoElement);
+    self.fightButtonOneElement.addEventListener('click', self.attackClick.bind(self));
 
-    self.fightButtonOneElement.addEventListener('click', self.attackOneClick);
-
-    self.fightButtonTwoElement.addEventListener('click', self.attackTwoClick);
-    self.characterOne = document.createElement('');
-    self.characterTwo = document.createElement('');
-    self.healthBar1 = document.createElement('');
-    self.healthBar2 = document.createElement('');
+    // self.characterOne = document.createElement('');
+    // self.characterTwo = document.createElement('');
+    //Health Bar # 1
+    // self.healthBar1 = document.createElement('div');
+    // self.healthBar1.setAttribute('id', 'health-bar')
+    // self.healthBar1.innerText = battle.playerOne.health;
+    // self.gameElement.appendChild(self.healthBar1);
+    // //Health bar # 2
+    // self.healthBar2 = document.createElement('div');
+    // self.healthBar2.setAttribute('id', 'health-bar')
+    // self.healthBar2.innerText = battle.playerTwo.health;
+    // self.gameElement.appendChild(self.healthBar2);
 }
 
 

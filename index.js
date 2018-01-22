@@ -61,10 +61,10 @@ function main () {
         mainElement.appendChild(gameElement);
 
         var game = new Game(gameElement);
-        game.buildStage();
-        game.onEnded = function() {
+        game.onEnded = function (name) {
+            console.log(name);
             destroyGame();
-            buildGameOver();
+            buildGameOver(name);
         }
         //@todo create dom elements 
         
@@ -85,7 +85,7 @@ function main () {
         buildGame();
     };
 
-    function buildGameOver (){
+    function buildGameOver (name){
         stage = 'gameOver';
         //@todo create div
 
@@ -93,7 +93,7 @@ function main () {
         gameOverElement.setAttribute('id', 'game-over');
 
         var endTitle = document.createElement('h1');
-        endTitle.innerText = 'GAME OVER';
+        endTitle.innerText = 'GAME OVER ' + name;
         gameOverElement.appendChild(endTitle);
 
         var endElement = document.querySelector('#site-main');
@@ -106,8 +106,9 @@ function main () {
         gameOverElement.appendChild(gameOverButton); 
 
         gameOverButton.addEventListener('click', handleGameOverClick);
+
         
-        //destroyGame();
+        
        
     };
 

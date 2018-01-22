@@ -1,41 +1,41 @@
 'use strict';
 
-function Players (health, strength){
+function Player (health, strength){
     this.isDead = false;
     this.health = health;
     this.strength = strength;
 }
 
-Players.prototype.receiveDamage = function (damage) {
+Player.prototype.receiveDamage = function (damage) {
     var self = this;
     self.health = self.health - damage;   
 };
 
-Players.prototype.specialAttack = function (damage) {
+Player.prototype.specialAttack = function (damage) {
     var self = this;
     self.health = self.health - damage;
 }
 
-Players.prototype.attack = function () {
+Player.prototype.attack = function () {
     var self = this;
     return self.strength;  
 };
 
 
 function Goku () {
-    Players.call(this, 500, 75)
+    Player.call(this, 500, 75)
     this.name = 'Goku';
 };
 
-Goku.prototype = Object.create(Players.prototype);
+Goku.prototype = Object.create(Player.prototype);
 Goku.prototype.constructor = Goku;
 
 function Broly () {
-    Players.call(this, 1000, 100)
+    Player.call(this, 1000, 100)
     this.name = 'Broly';
 }
 
-Broly.prototype = Object.create(Players.prototype);
+Broly.prototype = Object.create(Player.prototype);
 Broly.prototype.constructor = Broly;
 
 

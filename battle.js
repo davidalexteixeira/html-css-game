@@ -3,40 +3,48 @@
 function Battle (playerOne, playerTwo) {
     this.playerOne = playerOne;
     this.playerTwo = playerTwo;
+    this.currentTurn;
+    this.playerCount;
 
+    this.init();
+}
+
+Battle.prototype.init = function() {
+    this.playerCount = 2;
+    this.currentTurn = 0;
+}
+
+Battle.prototype.updateTurn = function() {
+    var self = this;
+    self.currentTurn += 1;
+    self.currentTurn = self.currentTurn % self.playerCount;
 }
 
 Battle.prototype.chooseCommand = function() {
     
 }
 
-Battle.prototype.attackPlayer = function(player) {
+Battle.prototype.attack = function() {
     var self = this;
 
-    if (player === 1) {
+    if (self.currentTurn === 0) {
         self.playerTwo.receiveDamage(self.playerOne.attack());   
-        self.checkIfDeath(2);
     } else {
         self.playerOne.receiveDamage(self.playerTwo.attack()); 
-        self.checkIfDeath(1);
     }
+    self.checkIfDeath();
     console.log(self.playerOne.name, self.playerOne.health);
     console.log(self.playerTwo.name, self.playerTwo.health);
 }
 
-Battle.prototype.checkIfDeath = function(player) {
+Battle.prototype.checkIfDeath = function() {
     var self = this;
 
-    if (player === 1) {
-        if(self.playerOne.health <= 0) {
-            self.playerOne.isDead = true;
-            // return true;
-        } 
-    } else {
-        if(self.playerTwo.health <= 0) {
-            self.playerTwo.isDead = true;
-            // return true;
-        }  
-    }
+    if(self.playerOne.health <= 0) {
+        self.playerOne.isDead = true;
+    } 
+    if(self.playerTwo.health <= 0) {
+        self.playerTwo.isDead = true;
+    }  
 }
 
