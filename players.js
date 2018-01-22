@@ -11,6 +11,11 @@ Players.prototype.receiveDamage = function (damage) {
     self.health = self.health - damage;   
 };
 
+Players.prototype.specialAttack = function (damage) {
+    var self = this;
+    self.health = self.health - damage;
+}
+
 Players.prototype.attack = function () {
     var self = this;
     return self.strength;  

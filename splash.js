@@ -62,20 +62,17 @@ function main () {
 
         var game = new Game(gameElement);
         game.buildStage();
-
-        //@todo calls game constructor
-        //@todo calls players constructor
-        //@todo calls battle constructor
-        //@todo create dom elements
-        
-        //setTimeout(destroyGame, 5000);
+        game.onEnded = function() {
+            destroyGame();
+            buildGameOver();
+        }
+        //@todo create dom elements 
         
     };
 
     
     function destroyGame (){
         gameElement.remove();       
-        buildGameOver();
     };
 
     //GAMEOVER

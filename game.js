@@ -1,12 +1,16 @@
 'use strict';
 
 
-function Game (gameElement){
-    //battle
+function Game (gameElement, end){
     this.gameElement = gameElement;
     this.fightButtonOneElement;
     this.fightButtonTwoElement;
-    // this.battle = new Battle(goku, broly)
+    this.gameIsOver = false;
+    this.characterOne;
+    this.characterTwo;
+    this.healthBar1;
+    this.healthBar2;
+    this.onEnded;
 }
 
 var goku = new Goku ();
@@ -15,16 +19,26 @@ var broly = new Broly ();
 
 var battle = new Battle (goku, broly)
 
-var attackOneClick = function () {
+Game.prototype.gameIsOver = function () {
+    var self = this; 
+
+    if(goku.isDead === true) {
+        self.gameIsOver = true;
+        self.onEnded();
+    }
+
+}
+
+Game.prototype.attackOneClick = function () {
    var self = this; 
    battle.attackPlayer(1);
-
+   self.gameIsOver();
 };
 
-var attackTwoClick = function () {
+Game.prototype.attackTwoClick = function () {
     var self = this;
     battle.attackPlayer(2);
-    
+    self.gameIsOver();
 };
 
 Game.prototype.buildStage = function() {
@@ -40,7 +54,15 @@ Game.prototype.buildStage = function() {
     self.fightButtonTwoElement.innerText ='Attack Two';
     self.gameElement.appendChild(self.fightButtonTwoElement);
 
-    self.fightButtonOneElement.addEventListener('click', attackOneClick);
+    self.fightButtonOneElement.addEventListener('click', self.attackOneClick);
 
-    self.fightButtonTwoElement.addEventListener('click', attackTwoClick);
+    self.fightButtonTwoElement.addEventListener('click', self.attackTwoClick);
+    self.characterOne = document.createElement('');
+    self.characterTwo = document.createElement('');
+    self.healthBar1 = document.createElement('');
+    self.healthBar2 = document.createElement('');
 }
+
+
+
+

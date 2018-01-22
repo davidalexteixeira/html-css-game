@@ -20,8 +20,8 @@ Battle.prototype.attackPlayer = function(player) {
         self.playerOne.receiveDamage(self.playerTwo.attack()); 
         self.checkIfDeath(1);
     }
-    console.log('Player 1: ', self.playerOne.health);
-    console.log('Player 2: ', self.playerTwo.health);
+    console.log(self.playerOne.name, self.playerOne.health);
+    console.log(self.playerTwo.name, self.playerTwo.health);
 }
 
 Battle.prototype.checkIfDeath = function(player) {
@@ -30,10 +30,12 @@ Battle.prototype.checkIfDeath = function(player) {
     if (player === 1) {
         if(self.playerOne.health <= 0) {
             self.playerOne.isDead = true;
+            // return true;
         } 
     } else {
         if(self.playerTwo.health <= 0) {
             self.playerTwo.isDead = true;
+            // return true;
         }  
     }
 }
