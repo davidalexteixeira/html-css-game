@@ -54,6 +54,8 @@ function main () {
     function buildGame (){
         stage = 'game';
 
+        game = new Game(mainElement);
+
         var game = document.createElement('div');
         game.setAttribute('id', 'game');
 
