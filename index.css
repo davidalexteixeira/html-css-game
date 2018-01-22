@@ -78,6 +78,7 @@ html {
       background-size: cover;
       height: 100%;
       background-size: 100% 100%;
+      text-align: center;
   }
 
   #game-over{
@@ -87,6 +88,19 @@ html {
     background-size: 100% 100%;
   }
   
+  #fight {
+    color:#F4ED09;
+    background-color: red;
+    border-color: 1px solid #F4ED09;
+    border-radius: 5px;
+  }
+
+  #fight-two{
+    color:#F4ED09;
+    background-color: red;
+    border-color: 1px solid #F4ED09;
+    border-radius: 5px;
+  }
   
   /* ---- components ---- */
   

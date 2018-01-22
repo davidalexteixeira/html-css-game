@@ -2,7 +2,7 @@
 
 function main () {
 
-
+    var mainElement = document.querySelector('#site-main');
     var stage;
 
     //SPLASH
@@ -30,8 +30,7 @@ function main () {
         title.innerText = 'Dragan Ball Zad';
 
         splashElement.appendChild(title);
-
-        var mainElement = document.querySelector('#site-main');
+  
         mainElement.appendChild(splashElement);
         //@todo create a button
 
@@ -51,30 +50,31 @@ function main () {
 
     };
 
+    var fightButton;
+    var gameElement;
+
     function buildGame (){
         stage = 'game';
 
-        game = new Game(mainElement);
+        gameElement = document.createElement('div');
+        gameElement.setAttribute('id', 'game');
+        mainElement.appendChild(gameElement);
 
-        var game = document.createElement('div');
-        game.setAttribute('id', 'game');
-
-        var mainElement = document.querySelector('#site-main');
-        mainElement.appendChild(game);
-        
+        var game = new Game(gameElement);
+        game.buildStage();
 
         //@todo calls game constructor
         //@todo calls players constructor
         //@todo calls battle constructor
         //@todo create dom elements
         
-        setTimeout(destroyGame, 5000);
+        //setTimeout(destroyGame, 5000);
         
     };
 
     
     function destroyGame (){
-        game.remove();       
+        gameElement.remove();       
         buildGameOver();
     };
 
