@@ -1,6 +1,8 @@
 'use strict';
 
-var IMAGES =['Beerus.png', 'Vegeta.png', 'JANEMBA.png', 'Gohan.png', 'Broly.png', 'KidBuu.png','Goku.png']
+var IMAGES =['Beerus.png', 'Vegeta.png', 'Janemba.png', 'Gohan.png', 'Broly.png', 'KidBuu.png','Goku.png']
+
+
 
 function Character (stageElement, players) {
     this.players = players;
@@ -17,6 +19,8 @@ function Character (stageElement, players) {
         if(this.idxSelectPlayerOne >= IMAGES.length - 1){
             this.idxSelectPlayerOne = -1;
         }
+
+        
     }
 
     this.handleSelectClick2 = function () {
@@ -43,6 +47,8 @@ Character.prototype.init = function () {
 
 Character.prototype.characterSelected = function (){
     var self = this;
+
+    
 
 };
 
