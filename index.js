@@ -12,7 +12,7 @@ function main () {
 
     var handleStartClick = function () {
         destroySplash();
-        buildGame();
+        buildCharacterSelect();
     };
 
     //@todo top level variables 
@@ -50,6 +50,34 @@ function main () {
 
     };
 
+    var characterSelect1Element;
+    var characterSelect2Element;
+    var stageElement;
+    var nextButton1;
+    var nextButton2;
+    
+
+    function buildCharacterSelect(players){
+        stage = 'characterSelect'
+
+        stageElement = document.createElement('div');
+        stageElement.setAttribute('id', 'splash');
+        mainElement.appendChild(stageElement);
+
+        var selectCharacter = new Character (stageElement, players);
+
+        selectCharacter.characterSelected = function (players) {
+            destroyCharacterSelect();
+            buildGame(players);
+        }
+
+
+    };
+
+    function destroyCharacterSelect() {
+        stageElement.remove();
+    };
+
     var fightButton;
     var gameElement;
 
@@ -69,14 +97,6 @@ function main () {
         //@todo create dom elements 
         
     };
-
-    selector.onSelected = function(players) {
-
-        destroySelectorStage();
-        buildGame(players)
-
-    }
-
     
     function destroyGame (){
         gameElement.remove();       

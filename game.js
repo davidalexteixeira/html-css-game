@@ -57,13 +57,6 @@ Game.prototype.specialAttackClick = function () {
     self.battle.updateTurn();
 };
 
-Game.prototype.characterSelect = function () {
-    var self = this;
-
-    self.characterOne = battle.playerOne;
-    self.characterTwo = battle.playerTwo;
-
-}
 
 Game.prototype.buildStage = function() {
     var self = this;
