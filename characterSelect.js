@@ -1,6 +1,6 @@
 'use strict';
 
-var IMAGES =['Beerus.png', 'Vegeta.png', 'JANEMBA.png', 'Gohan.png']
+var IMAGES =['Beerus.png', 'Vegeta.png', 'JANEMBA.png', 'Gohan.png', 'Broly.png', 'KidBuu.png','Goku.png']
 
 function Character (stageElement, players) {
     this.players = players;
@@ -13,11 +13,19 @@ function Character (stageElement, players) {
     this.handleSelectClick1 = function () {
         this.idxSelectPlayerOne++;
 
-        //if idxplayerOne > array --- change value
-
         this.characterSelect1Element.setAttribute('src', './Images/' + IMAGES[this.idxSelectPlayerOne])
+        if(this.idxSelectPlayerOne >= IMAGES.length - 1){
+            this.idxSelectPlayerOne = -1;
+        }
     }
+
     this.handleSelectClick2 = function () {
+        this.idxSelectPlayerTwo++;
+
+        this.characterSelect2Element.setAttribute('src', './Images/' + IMAGES[this.idxSelectPlayerTwo])
+        if(this.idxSelectPlayerTwo >= IMAGES.length - 1){
+            this.idxSelectPlayerTwo = -1;
+        }
 
     }
 
@@ -52,7 +60,7 @@ Character.prototype.buildCharacterSelect = function () {
     self.stageElement.appendChild(self.characterSelect1Element);
     self.stageElement.appendChild(self.characterSelect2Element);
     self.characterSelect1Element.setAttribute('src', './Images/Goku.png')
-    self.characterSelect2Element.setAttribute('src', './Images/Broly-lssj-final-copy.png')
+    self.characterSelect2Element.setAttribute('src', './Images/Broly.png')
 
     var randomDiv = document.createElement('div');
     randomDiv.setAttribute('id', 'button-wrap')
@@ -65,6 +73,7 @@ Character.prototype.buildCharacterSelect = function () {
     self.nextButton2.setAttribute('id', 'next-two-button');
     self.nextButton2.innerText = 'Next';
     randomDiv.appendChild(self.nextButton2);
+    self.nextButton2.addEventListener('click', self.handleSelectClick2.bind(self));
     var randomDiv2 = document.createElement('div');
     self.choose1 = document.createElement('button');
     self.choose1.setAttribute('id', 'next-one-button');
