@@ -24,8 +24,11 @@ Battle.prototype.chooseCommand = function() {
     
 }
 
-Battle.prototype.attack = function() {
+Battle.prototype.attack = function(command) { //must change to execCommand
     var self = this;
+
+    //switch (command)
+    // case attack -> check turn and attack
 
     if (self.currentTurn === 0) {
         self.playerTwo.receiveDamage(self.playerOne.attack());   

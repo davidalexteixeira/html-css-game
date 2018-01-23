@@ -41,9 +41,11 @@ Game.prototype.checkIfIsOver = function () {
 }
 
 
-Game.prototype.attackClick = function () {
+Game.prototype.attackClick = function (e) {
     var self = this;
-    self.battle.attack();
+    console.log(e);
+    var command = 'commnad' //grab the id from the e.currentTarget
+    self.battle.attack(); // change name to execCommand
     self.checkIfIsOver();
     self.battle.updateTurn();
 };
@@ -55,9 +57,13 @@ Game.prototype.specialAttackClick = function () {
     self.battle.updateTurn();
 };
 
-// Game.prototype.characterSelect = function () {
+Game.prototype.characterSelect = function () {
+    var self = this;
 
-// }
+    self.characterOne = battle.playerOne;
+    self.characterTwo = battle.playerTwo;
+
+}
 
 Game.prototype.buildStage = function() {
     var self = this;
@@ -70,7 +76,7 @@ Game.prototype.buildStage = function() {
     self.fightButtonOneElement.addEventListener('click', self.attackClick.bind(self));
     
     self.fightButtonTwoElement = document.createElement('button');
-    self.fightButtonTwoElement.setAttribute('id', 'fight');
+    self.fightButtonTwoElement.setAttribute('id', 'special');
     self.fightButtonTwoElement.innerText = 'Special Attack';
     self.gameElement.appendChild(self.fightButtonTwoElement);
 

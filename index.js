@@ -53,14 +53,14 @@ function main () {
     var fightButton;
     var gameElement;
 
-    function buildGame (){
+    function buildGame (players){
         stage = 'game';
 
         gameElement = document.createElement('div');
         gameElement.setAttribute('id', 'game');
         mainElement.appendChild(gameElement);
 
-        var game = new Game(gameElement);
+        var game = new Game(gameElement, players);
         game.onEnded = function (name) {
             console.log(name);
             destroyGame();
@@ -69,6 +69,13 @@ function main () {
         //@todo create dom elements 
         
     };
+
+    selector.onSelected = function(players) {
+
+        destroySelectorStage();
+        buildGame(players)
+
+    }
 
     
     function destroyGame (){
