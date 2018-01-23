@@ -4,6 +4,7 @@
 function Game (gameElement){
     this.gameElement = gameElement;
     this.fightButtonOneElement;
+    this.fightButtonTwoElement;
     this.characterOne;
     this.characterTwo;
     this.healthBar1;
@@ -49,14 +50,14 @@ Game.prototype.attackClick = function () {
 
 Game.prototype.specialAttackClick = function () {
     var self = this;
-    self.battle.attack();
+    self.battle.specialAttack();
     self.checkIfIsOver();
     self.battle.updateTurn();
 };
 
-Game.prototype.characterSelect = function () {
+// Game.prototype.characterSelect = function () {
 
-}
+// }
 
 Game.prototype.buildStage = function() {
     var self = this;
@@ -67,18 +68,25 @@ Game.prototype.buildStage = function() {
     self.gameElement.appendChild(self.fightButtonOneElement);
 
     self.fightButtonOneElement.addEventListener('click', self.attackClick.bind(self));
+    
+    self.fightButtonTwoElement = document.createElement('button');
+    self.fightButtonTwoElement.setAttribute('id', 'fight');
+    self.fightButtonTwoElement.innerText = 'Special Attack';
+    self.gameElement.appendChild(self.fightButtonTwoElement);
+
+    self.fightButtonTwoElement.addEventListener('click', self.specialAttackClick.bind(self));
 
     // self.characterOne = document.createElement('');
     // self.characterTwo = document.createElement('');
     //Health Bar # 1
     // self.healthBar1 = document.createElement('div');
     // self.healthBar1.setAttribute('id', 'health-bar')
-    // self.healthBar1.innerText = battle.playerOne.health;
+    // self.healthBar1.innerText = Player.playerOne.health;
     // self.gameElement.appendChild(self.healthBar1);
-    // //Health bar # 2
+    // // //Health bar # 2
     // self.healthBar2 = document.createElement('div');
     // self.healthBar2.setAttribute('id', 'health-bar')
-    // self.healthBar2.innerText = battle.playerTwo.health;
+    // self.healthBar2.innerText = Player.playerTwo.health;
     // self.gameElement.appendChild(self.healthBar2);
 
     //self.characterOneSelect = document.createElement('button');
