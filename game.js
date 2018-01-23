@@ -39,6 +39,7 @@ Game.prototype.checkIfIsOver = function () {
     }
 }
 
+
 Game.prototype.attackClick = function () {
     var self = this;
     self.battle.attack();
@@ -46,6 +47,16 @@ Game.prototype.attackClick = function () {
     self.battle.updateTurn();
 };
 
+Game.prototype.specialAttackClick = function () {
+    var self = this;
+    self.battle.attack();
+    self.checkIfIsOver();
+    self.battle.updateTurn();
+};
+
+Game.prototype.characterSelect = function () {
+
+}
 
 Game.prototype.buildStage = function() {
     var self = this;
@@ -69,7 +80,15 @@ Game.prototype.buildStage = function() {
     // self.healthBar2.setAttribute('id', 'health-bar')
     // self.healthBar2.innerText = battle.playerTwo.health;
     // self.gameElement.appendChild(self.healthBar2);
+
+    //self.characterOneSelect = document.createElement('button');
+    //self.characterTwoSelect = document.createElement('button');
+    //self.characterOneSelect.setAttribute('id', 'character-one-select');
+    //self.characterTwoSelect.setAttribute('id', 'character-two-select');
+    //self.gameElement.appendChild('self.characterOneSelect');
+    //self.gameElement.appendChild('self.characterTwoSelect');
 }
+
 
 
 

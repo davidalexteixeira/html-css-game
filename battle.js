@@ -37,6 +37,20 @@ Battle.prototype.attack = function() {
     console.log(self.playerTwo.name, self.playerTwo.health);
 }
 
+Battle.prototype.specialAttack = function () {
+    var self = this; 
+
+    if (self.currentTurn === 0) {
+        self.playerTwo.receiveDamage(self.playerOne.specialAttack());   
+    } else {
+        self.playerOne.receiveDamage(self.playerTwo.specialAttack()); 
+    }
+    self.checkIfDeath();
+    console.log(self.playerOne.name, self.playerOne.health);
+    console.log(self.playerTwo.name, self.playerTwo.health);
+
+}
+
 Battle.prototype.checkIfDeath = function() {
     var self = this;
 

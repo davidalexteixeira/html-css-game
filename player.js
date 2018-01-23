@@ -11,7 +11,7 @@ Player.prototype.receiveDamage = function (damage) {
     self.health = self.health - damage;   
 };
 
-Player.prototype.specialAttack = function (damage) {
+Player.prototype.special = function (damage) {
     var self = this;
     self.health = self.health - damage;
 }
@@ -21,10 +21,16 @@ Player.prototype.attack = function () {
     return self.strength;  
 };
 
+Player.prototype.specialAttack = function () {
+    var self = this;
+    return self.specialAbility;
+}
+
 
 function Goku () {
     Player.call(this, 500, 75)
     this.name = 'Goku';
+    this.specialAbility = 600;
 };
 
 Goku.prototype = Object.create(Player.prototype);
@@ -33,6 +39,7 @@ Goku.prototype.constructor = Goku;
 function Broly () {
     Player.call(this, 1000, 100)
     this.name = 'Broly';
+    this.specialAbility = 400;
 }
 
 Broly.prototype = Object.create(Player.prototype);
