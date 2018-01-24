@@ -44,6 +44,32 @@ Game.prototype.startGame = function() {
 Game.prototype.createPlayers = function(namePlayer) {
     //switch by name and return the created Character
 
+    switch (namePlayer) {
+        case 'Goku':
+            new Goku ();
+            break;
+        case 'Broly':
+            new Broly ();
+            break;
+        case 'Beerus':
+            new Beerus ();
+            break;
+        case 'Vegeta':
+            new Vegeta ();
+            break;
+        case 'Janemba':
+            new Janemba ();
+            break;
+        case 'Gohan':
+            new Gohan ();
+            break;
+        case 'KidBuu':
+            new Buu ();
+            break;
+        default:
+         alert('Error occured');
+    }
+
 };
 
 

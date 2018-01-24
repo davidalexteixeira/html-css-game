@@ -5,40 +5,50 @@ var IMAGES =['Beerus.png', 'Vegeta.png', 'Janemba.png', 'Gohan.png', 'Broly.png'
 
 
 function Character (stageElement) {
-    this.stageElement = stageElement;
-    this.player1Selection;
-    this.player2Selection;
-    this.characterSelect1Element;
-    this.idxSelectPlayerOne;
-    this.characterSelect2Element;
-    this.idxSelectPlayerTwo;
-    this.onSelected;
+    var self = this;
 
-    this.handleSelectClick1 = function () {
-        this.idxSelectPlayerOne++;
+    self.stageElement = stageElement;
+    self.player1Selection;
+    self.player2Selection;
+    self.characterSelect1Element;
+    self.idxSelectPlayerOne;
+    self.characterSelect2Element;
+    self.idxSelectPlayerTwo;
+    self.onSelected;
 
-        this.characterSelect1Element.setAttribute('src', './Images/' + IMAGES[this.idxSelectPlayerOne])
-        if(this.idxSelectPlayerOne >= IMAGES.length - 1){
-            this.idxSelectPlayerOne = -1;
+    self.handleSelectClick1 = function () {
+    
+        self.idxSelectPlayerOne++;
+
+        self.characterSelect1Element.setAttribute('src', './Images/' + IMAGES[self.idxSelectPlayerOne])
+        if(self.idxSelectPlayerOne >= IMAGES.length - 1){
+            self.idxSelectPlayerOne = -1;
         }
 
-        this.player1Selection = this._formatName(IMAGES[this.idxSelectPlayerOne]);
+        self.player1Selection = self._formatName(IMAGES[self.idxSelectPlayerOne]);
 
         
     }
 
-    this.handleSelectClick2 = function () {
-        this.idxSelectPlayerTwo++;
+    self.handleSelectClick2 = function () {
 
-        this.characterSelect2Element.setAttribute('src', './Images/' + IMAGES[this.idxSelectPlayerTwo])
-        if(this.idxSelectPlayerTwo >= IMAGES.length - 1){
-            this.idxSelectPlayerTwo = -1;
+        self.idxSelectPlayerTwo++;
+
+        self.characterSelect2Element.setAttribute('src', './Images/' + IMAGES[self.idxSelectPlayerTwo])
+        if(self.idxSelectPlayerTwo >= IMAGES.length - 1){
+            self.idxSelectPlayerTwo = -1;
         }
 
-        this.player2Selection = this._formatName(IMAGES[this.idxSelectPlayerTwo]);
+        self.player2Selection = self._formatName(IMAGES[self.idxSelectPlayerTwo]);
     }
 
-    this.init();
+    self.handleSelectedClick = function(event){
+
+        var players = [self.player1Selection, self.player2Selection]
+        self.onSelected(players);
+    }
+
+    self.init();
 
 }
 
@@ -52,6 +62,7 @@ Character.prototype.init = function () {
 
 Character.prototype._formatName = function(string) {
 
+    return string.replace('.png', '');
     //remove .pgn
     //return the formatted string
 }
@@ -81,20 +92,17 @@ Character.prototype.buildCharacterSelect = function () {
     self.nextButton1.setAttribute('id', 'next-one-button');
     self.nextButton1.innerText = 'Next';
     randomDiv.appendChild(self.nextButton1);
-    self.nextButton1.addEventListener('click', self.handleSelectClick1.bind(self));
+    self.nextButton1.addEventListener('click', self.handleSelectClick1);
     self.nextButton2 = document.createElement('button');
     self.nextButton2.setAttribute('id', 'next-two-button');
     self.nextButton2.innerText = 'Next';
     randomDiv.appendChild(self.nextButton2);
-    self.nextButton2.addEventListener('click', self.handleSelectClick2.bind(self));
+    self.nextButton2.addEventListener('click', self.handleSelectClick2);
     var randomDiv2 = document.createElement('div');
     self.choose1 = document.createElement('button');
     self.choose1.setAttribute('id', 'next-one-button');
     self.choose1.innerText = 'Choose';
-    self.choose1.addEventListener('click', function(event){
-        var players = [player1Selection, player2Selection]
-        self.onSelected(players);
-    });
+    self.choose1.addEventListener('click', self.handleSelectedClick);
 
     randomDiv2.appendChild(self.choose1);
       

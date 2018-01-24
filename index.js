@@ -66,7 +66,7 @@ function main () {
 
         var selectCharacter = new Character (stageElement, players);
 
-        selectCharacter.characterSelected(function (players) {
+        selectCharacter.onCharacterSelected(function (players) {
             destroyCharacterSelect();
             buildGame(players);
         });
