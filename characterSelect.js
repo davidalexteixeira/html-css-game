@@ -1,6 +1,6 @@
 'use strict';
 
-var IMAGES =['','Beerus.png', 'Vegeta.png', 'Janemba.png', 'Gohan.png', 'Broly.png', 'KidBuu.png','Goku.png']
+var IMAGES =['Goku.png', 'Broly.png', 'Beerus.png', 'Vegeta.png', 'Janemba.png', 'Gohan.png', 'KidBuu.png']
 
 
 
@@ -20,26 +20,24 @@ function Character (stageElement) {
     
         self.idxSelectPlayerOne++;
 
-        self.characterSelect1Element.setAttribute('src', './Images/' + IMAGES[self.idxSelectPlayerOne])
-        if(self.idxSelectPlayerOne >= IMAGES.length - 1){
+        if(self.idxSelectPlayerOne > IMAGES.length - 1){
             self.idxSelectPlayerOne = 0;
         }
+        self.characterSelect1Element.setAttribute('src', './Images/' + IMAGES[self.idxSelectPlayerOne])
 
-        self.player1Selection = self._formatName(IMAGES[self.idxSelectPlayerOne]);
-
-        
+        self._setSelectedCharacters();
     }
 
     self.handleSelectClick2 = function () {
 
         self.idxSelectPlayerTwo++;
 
-        self.characterSelect2Element.setAttribute('src', './Images/' + IMAGES[self.idxSelectPlayerTwo])
-        if(self.idxSelectPlayerTwo >= IMAGES.length - 1){
+        if(self.idxSelectPlayerTwo > IMAGES.length - 1){
             self.idxSelectPlayerTwo = 0;
         }
+        self.characterSelect2Element.setAttribute('src', './Images/' + IMAGES[self.idxSelectPlayerTwo])
 
-        self.player2Selection = self._formatName(IMAGES[self.idxSelectPlayerTwo]);
+        self._setSelectedCharacters();
     }
 
     self.handleSelectedClick = function(event){
@@ -56,8 +54,18 @@ Character.prototype.init = function () {
     var self = this; 
 
     self.idxSelectPlayerOne = 0;
-    self.idxSelectPlayerTwo = 0;
+    self.idxSelectPlayerTwo = 1;
+
+
     self.buildCharacterSelect();
+    self._setSelectedCharacters();
+}
+
+Character.prototype._setSelectedCharacters = function () {
+    var self = this;
+
+    self.player1Selection = self._formatName(IMAGES[self.idxSelectPlayerOne]);
+    self.player2Selection = self._formatName(IMAGES[self.idxSelectPlayerTwo]);
 }
 
 Character.prototype._formatName = function(string) {

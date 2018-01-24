@@ -25,21 +25,23 @@ Game.prototype.init = function() {
 
 }
 
+Game.prototype.startGame = function() {
+    //iterate self.player
+    //
+
+    var self = this;
+    
+    var player1 = self.createPlayers(self.players[0]);
+    var player2 = self.createPlayers(self.players[1]);
+
+
+    this.battle = new Battle (player1, player2)
+}
+
 Game.prototype.onGameOver = function(callback) {
     var self = this;
     
     self.onEnded = callback;
-}
-
-Game.prototype.startGame = function() {
-    //iterate self.player
-    //
-    var goku = new Goku ();
-    var broly = new Broly ();
-    
-
-
-    this.battle = new Battle (goku, broly)
 }
 
 Game.prototype.createPlayers = function(namePlayer) {
@@ -47,26 +49,19 @@ Game.prototype.createPlayers = function(namePlayer) {
 
     switch (namePlayer) {
         case 'Goku':
-            new Goku ();
-            break;
+            return new Goku ();
         case 'Broly':
-            new Broly ();
-            break;
+            return new Broly ();
         case 'Beerus':
-            new Beerus ();
-            break;
+            return new Beerus ();
         case 'Vegeta':
-            new Vegeta ();
-            break;
+            return new Vegeta ();
         case 'Janemba':
-            new Janemba ();
-            break;
+            return new Janemba ();
         case 'Gohan':
-            new Gohan ();
-            break;
+            return new Gohan ();
         case 'KidBuu':
-            new Buu ();
-            break;
+            return new Buu ();
         default:
          alert('Error occured');
     }
@@ -111,6 +106,12 @@ Game.prototype.defenseButtonClick = function () {
 
 Game.prototype.buildStage = function() {
     var self = this;
+
+    var buttonWrap;
+
+    buttonWrap = document.createElement('div');
+    buttonWrap.setAttribute('id','game-wrapper');
+    self.gameElement.appendChild(buttonWrap);
 
     self.fightButtonOneElement = document.createElement('button');
     self.fightButtonOneElement.setAttribute('id', 'fight');

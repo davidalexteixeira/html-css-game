@@ -50,21 +50,16 @@ function main () {
 
     };
 
-    var characterSelect1Element;
-    var characterSelect2Element;
     var stageElement;
-    var nextButton1;
-    var nextButton2;
     
-
-    function buildCharacterSelect(players){
+    function buildCharacterSelect(){
         stage = 'characterSelect'
 
         stageElement = document.createElement('div');
         stageElement.setAttribute('id', 'splash');
         mainElement.appendChild(stageElement);
 
-        var selectCharacter = new Character (stageElement, players);
+        var selectCharacter = new Character (stageElement);
 
         selectCharacter.onCharacterSelected(function (players) {
             destroyCharacterSelect();
@@ -109,7 +104,7 @@ function main () {
 
     var handleGameOverClick = function () {
         destroyGameOver();
-        buildGame();
+        buildCharacterSelect();
     };
 
     function buildGameOver (name){
