@@ -137,6 +137,66 @@ html {
     height: 50%;
     width: 50%;
   }
+
+  #player-one {
+    height: 150px;
+    width: 150px;
+    border: 4px solid red;
+    float: left;
+    margin-left: 150px;
+  }
+  
+#player-two {
+  height: 150px;
+  width: 150px;
+  border: 4px solid red;
+  float: right;
+  margin-right: 150px;
+  }
+
+
+  #goku-standing {
+    float:left;
+    margin-left: 50px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: calc(500px / 4);
+    height: 122px;
+    background: url('./Images/Gokustanding.png');
+    animation: animate 0.7s steps(4) infinite;
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+  }
+
+  @keyframes animate {
+    from {
+      background-position: 0;
+    }
+    to {
+      background-position: 531px;
+    }
+  }
+
+  #broly-standing {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: calc(699px / 6);
+    height: 133px;
+    background: url('./Images/Brolystanding.png');
+    animation: animate 2s steps(6);
+  }
+
+  @keyframes animate {
+    from {
+      background-position: 0;
+    }
+    to {
+      background-position: 715px;
+    }
+  }
   
   /* ---- components ---- */
   

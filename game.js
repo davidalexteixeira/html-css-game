@@ -108,10 +108,20 @@ Game.prototype.buildStage = function() {
     var self = this;
 
     var buttonWrap;
+    var player1;
+    var player2;
 
     buttonWrap = document.createElement('div');
     buttonWrap.setAttribute('id','game-wrapper');
     self.gameElement.appendChild(buttonWrap);
+
+    player1 = document.createElement('div');
+    player1.setAttribute('id', 'goku-standing');
+    self.gameElement.appendChild(player1);
+
+    player2 = document.createElement('div');
+    player2.setAttribute('id', 'player-two');
+    self.gameElement.appendChild(player2);
 
     self.fightButtonOneElement = document.createElement('button');
     self.fightButtonOneElement.setAttribute('id', 'fight');
