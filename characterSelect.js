@@ -4,13 +4,15 @@ var IMAGES =['Beerus.png', 'Vegeta.png', 'Janemba.png', 'Gohan.png', 'Broly.png'
 
 
 
-function Character (stageElement, players) {
-    this.players = players;
+function Character (stageElement) {
     this.stageElement = stageElement;
+    this.player1Selection;
+    this.player2Selection;
     this.characterSelect1Element;
     this.idxSelectPlayerOne;
     this.characterSelect2Element;
     this.idxSelectPlayerTwo;
+    this.onSelected;
 
     this.handleSelectClick1 = function () {
         this.idxSelectPlayerOne++;
@@ -19,6 +21,8 @@ function Character (stageElement, players) {
         if(this.idxSelectPlayerOne >= IMAGES.length - 1){
             this.idxSelectPlayerOne = -1;
         }
+
+        this.player1Selection = this._formatName(IMAGES[this.idxSelectPlayerOne]);
 
         
     }
@@ -31,6 +35,7 @@ function Character (stageElement, players) {
             this.idxSelectPlayerTwo = -1;
         }
 
+        this.player2Selection = this._formatName(IMAGES[this.idxSelectPlayerTwo]);
     }
 
     this.init();
@@ -45,16 +50,18 @@ Character.prototype.init = function () {
     self.buildCharacterSelect();
 }
 
-Character.prototype.characterSelected = function (){
+Character.prototype._formatName = function(string) {
+
+    //remove .pgn
+    //return the formatted string
+}
+
+Character.prototype.onCharacterSelected = function (callback){
     var self = this;
 
-    
-
+    self.onSelected = callback;
 };
 
-Character.prototype.nextCharacter = function () {
-
-}
 
 Character.prototype.buildCharacterSelect = function () {
     var self = this;
@@ -85,20 +92,12 @@ Character.prototype.buildCharacterSelect = function () {
     self.choose1.setAttribute('id', 'next-one-button');
     self.choose1.innerText = 'Choose';
     self.choose1.addEventListener('click', function(event){
-        return self.characterSelected();
+        var players = [player1Selection, player2Selection]
+        self.onSelected(players);
     });
 
     randomDiv2.appendChild(self.choose1);
-    self.choose2 = document.createElement('button');
-    self.choose2.setAttribute('id', 'next-two-button');
-    self.choose2.innerText = 'Choose';
-    self.choose2.addEventListener('click', function(event){
-        return self.characterSelected();
-    });
-
-    randomDiv2.appendChild(self.choose2);
-
-
+      
     self.stageElement.appendChild(randomDiv);
     self.stageElement.appendChild(randomDiv2);
 }

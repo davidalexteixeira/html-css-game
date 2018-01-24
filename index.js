@@ -66,10 +66,10 @@ function main () {
 
         var selectCharacter = new Character (stageElement, players);
 
-        selectCharacter.characterSelected = function (players) {
+        selectCharacter.characterSelected(function (players) {
             destroyCharacterSelect();
             buildGame(players);
-        }
+        });
 
 
     };
@@ -89,11 +89,11 @@ function main () {
         mainElement.appendChild(gameElement);
 
         var game = new Game(gameElement, players);
-        game.onEnded = function (name) {
+        game.onGameOver(function (name) {
             console.log(name);
             destroyGame();
             buildGameOver(name);
-        }
+        });
         //@todo create dom elements 
         
     };

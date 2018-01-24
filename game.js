@@ -1,8 +1,9 @@
 'use strict';
 
 
-function Game (gameElement){
+function Game (gameElement, players){
     this.gameElement = gameElement;
+    this.players = players;
     this.fightButtonOneElement;
     this.fightButtonTwoElement;
     this.characterOne;
@@ -20,14 +21,30 @@ Game.prototype.init = function() {
 
     self.buildStage();
     self.startGame();
+
+}
+
+Game.prototype.onGameOver = function(callback) {
+    var self = this;
+    
+    self.onEnded = callback;
 }
 
 Game.prototype.startGame = function() {
+    //iterate self.player
+    //
     var goku = new Goku ();
     var broly = new Broly ();
     
+
+
     this.battle = new Battle (goku, broly)
 }
+
+Game.prototype.createPlayers = function(namePlayer) {
+    //switch by name and return the created Character
+
+};
 
 
 Game.prototype.checkIfIsOver = function () {
