@@ -1,6 +1,6 @@
 'use strict';
 
-var IMAGES =['Beerus.png', 'Vegeta.png', 'Janemba.png', 'Gohan.png', 'Broly.png', 'KidBuu.png','Goku.png']
+var IMAGES =['','Beerus.png', 'Vegeta.png', 'Janemba.png', 'Gohan.png', 'Broly.png', 'KidBuu.png','Goku.png']
 
 
 
@@ -22,7 +22,7 @@ function Character (stageElement) {
 
         self.characterSelect1Element.setAttribute('src', './Images/' + IMAGES[self.idxSelectPlayerOne])
         if(self.idxSelectPlayerOne >= IMAGES.length - 1){
-            self.idxSelectPlayerOne = -1;
+            self.idxSelectPlayerOne = 0;
         }
 
         self.player1Selection = self._formatName(IMAGES[self.idxSelectPlayerOne]);
@@ -36,7 +36,7 @@ function Character (stageElement) {
 
         self.characterSelect2Element.setAttribute('src', './Images/' + IMAGES[self.idxSelectPlayerTwo])
         if(self.idxSelectPlayerTwo >= IMAGES.length - 1){
-            self.idxSelectPlayerTwo = -1;
+            self.idxSelectPlayerTwo = 0;
         }
 
         self.player2Selection = self._formatName(IMAGES[self.idxSelectPlayerTwo]);
