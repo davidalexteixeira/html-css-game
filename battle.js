@@ -54,6 +54,22 @@ Battle.prototype.specialAttack = function () {
 
 }
 
+Battle.prototype.defensiveBonus = function () {
+    var self = this;
+
+    if (self.currentTurn === 0) {
+        self.playerOne.getBonus();   
+    } else {
+        self.playerTwo.getBonus(); 
+    }
+    self.checkIfDeath();
+    console.log(self.playerOne.name, self.playerOne.health);
+    console.log(self.playerTwo.name, self.playerTwo.health);
+
+
+}
+
+
 Battle.prototype.checkIfDeath = function() {
     var self = this;
 

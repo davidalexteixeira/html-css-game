@@ -4,7 +4,6 @@ function Player (health, strength, defenseBonus, criticalHitChance, attackHitCha
     this.isDead = false;
     this.health = health;
     this.strength = strength;
-    this.defenseBonus = defenseBonus;
     this.criticalHitChance = criticalHitChance;
     this.attackHitChance = attackHitChance;
 }
@@ -21,7 +20,7 @@ Player.prototype.special = function (damage) {
 
 Player.prototype.attack = function () {
     var self = this;
-    return self.strength;  
+    return self.strength;
 };
 
 Player.prototype.specialAttack = function () {
@@ -31,12 +30,17 @@ Player.prototype.specialAttack = function () {
 
 Player.prototype.getBonus = function () {
     var self = this;
-    return Math.floor(Math.random() * 50) + self.defenseBonus;
+    self.health = Math.floor(Math.random() * 50) + self.health;
+};
+
+Player.prototype.attackHitChance = function () {
+    var self = this;
+    return Math.floor(Math.random() * 40) - self.attackHitChance;
 };
 
 
 function Goku () {
-    Player.call(this, 500, 75, 1)
+    Player.call(this, 500, 75, 100, 100)
     this.name = 'Goku';
     this.specialAbility = 600;
     this.specialAbilityName = 'Kamehameha Wave!';
@@ -46,7 +50,7 @@ Goku.prototype = Object.create(Player.prototype);
 Goku.prototype.constructor = Goku;
 
 function Vegeta () {
-    Player.call(this, 500, 70, 1)
+    Player.call(this, 500, 70, 100, 100)
     this.name = 'Vegeta';
     this.specialAbility = 500;
     this.specialAbilityName = 'Galick Gun!';
@@ -56,7 +60,7 @@ Vegeta.prototype = Object.create(Player.prototype);
 Vegeta.prototype.constructor = Vegeta;
 
 function Gohan () {
-    Player.call(this, 500, 70, 1)
+    Player.call(this, 500, 70, 100, 100)
     this.name = 'Teen Gohan';
     this.specialAbility = 800;
     this.specialAbilityName = 'Super Kamehameha Wave!';
@@ -67,7 +71,7 @@ Gohan.prototype.constructor = Gohan;
 
 
 function Broly () {
-    Player.call(this, 1000, 100, 0)
+    Player.call(this, 1000, 100, 100, 100)
     this.name = 'Broly';
     this.specialAbility = 400;
     this.specialAbilityName = 'RAGE!'
@@ -77,7 +81,7 @@ Broly.prototype = Object.create(Player.prototype);
 Broly.prototype.constructor = Broly;
 
 function Janemba () {
-    Player.call(this, 1500, 100, 0)
+    Player.call(this, 1500, 100, 100, 100)
     this.name = 'Janemba';
     this.specialAbility = 500;
     this.specialAbilityName = 'Sword Dash!'
@@ -88,7 +92,7 @@ Janemba.prototype.constructor = Janemba;
 
 
 function Buu () {
-    Player.call(this, 1500, 70, 0)
+    Player.call(this, 1500, 70, 100, 100)
     this.name = 'Kid Buu';
     this.specialAbility = 300;
     this.specialAbilityName = 'Vanishing Beam!'
@@ -99,7 +103,7 @@ Buu.prototype.constructor = Buu;
 
 
 function Beerus () {
-    Player.call(this, 500000, 10000, 0)
+    Player.call(this, 500000, 10000, 0, 100 , 100)
     this.name = 'Beerus';
     this.specialAbility = 10000;
     this.specialAbilityName = 'Hakai!'

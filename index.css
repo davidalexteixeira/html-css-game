@@ -15,11 +15,7 @@ html {
       margin: 0;
       
     }
-    @font-face {
-        src: url('./Images/Saiyan-Sans.ttf');
-        font-family: 'dragon'
-    }
-  
+ 
   
   /* ---- typography ---- */
   
@@ -29,7 +25,7 @@ html {
   
   h1 {
       color: red;
-      font-family: dragon;
+      font-family: 'Supermercado One', cursive;
       font-size: 50px;
       margin: 0;    
       padding-top: 100px;

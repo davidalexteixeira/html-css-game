@@ -61,6 +61,7 @@ Character.prototype.init = function () {
 }
 
 Character.prototype._formatName = function(string) {
+    var self = this;
 
     return string.replace('.png', '');
     //remove .pgn

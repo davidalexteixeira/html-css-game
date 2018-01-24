@@ -6,6 +6,7 @@ function Game (gameElement, players){
     this.players = players;
     this.fightButtonOneElement;
     this.fightButtonTwoElement;
+    this.defenseBonusElement;
     this.characterOne;
     this.characterTwo;
     this.healthBar1;
@@ -100,6 +101,13 @@ Game.prototype.specialAttackClick = function () {
     self.battle.updateTurn();
 };
 
+Game.prototype.defenseButtonClick = function () {
+    var self = this;
+    self.battle.defensiveBonus();
+    self.checkIfIsOver();
+    self.battle.updateTurn();
+};
+
 
 Game.prototype.buildStage = function() {
     var self = this;
@@ -117,6 +125,13 @@ Game.prototype.buildStage = function() {
     self.gameElement.appendChild(self.fightButtonTwoElement);
 
     self.fightButtonTwoElement.addEventListener('click', self.specialAttackClick.bind(self));
+
+    self.defenseBonusElement = document.createElement('button');
+    self.defenseBonusElement.setAttribute('id', 'special');
+    self.defenseBonusElement.innerText = 'Defense';
+    self.gameElement.appendChild(self.defenseBonusElement);
+
+    self.defenseBonusElement.addEventListener('click', self.defenseButtonClick.bind(self));
 
     // self.characterOne = document.createElement('');
     // self.characterTwo = document.createElement('');

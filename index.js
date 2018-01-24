@@ -27,7 +27,7 @@ function main () {
         splashElement.setAttribute('id', 'splash');
 
         var title = document.createElement('h1');
-        title.innerText = 'Dragan Ball Zad';
+        title.innerText = 'The Turn of the Dragon';
 
         splashElement.appendChild(title);
   
