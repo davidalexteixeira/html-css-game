@@ -87,8 +87,8 @@ function Piccolo () {
     this.specialAbilityName = 'Special Beam Cannon!'
 }
 
-Piccolo.prototype = Object.create(Player.prototype);
-Piccolo.prototype.constructor = Piccolo;
+Janemba.prototype = Object.create(Player.prototype);
+Janemba.prototype.constructor = Janemba;
 
 
 function Buu () {
