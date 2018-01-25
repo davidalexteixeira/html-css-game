@@ -1,6 +1,6 @@
 'use strict';
 
-var IMAGES =['Goku.png', 'Broly.png', 'Beerus.png', 'Vegeta.png', 'Janemba.png', 'Gohan.png', 'KidBuu.png']
+var IMAGES =['Goku.png', 'Broly.png', 'Beerus.png', 'Vegeta.png', 'Piccolo.png', 'Gohan.png', 'KidBuu.png']
 
 
 

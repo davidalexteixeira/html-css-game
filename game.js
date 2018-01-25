@@ -56,8 +56,8 @@ Game.prototype.createPlayers = function(namePlayer) {
             return new Beerus ();
         case 'Vegeta':
             return new Vegeta ();
-        case 'Janemba':
-            return new Janemba ();
+        case 'Piccolo':
+            return new Piccolo ();
         case 'Gohan':
             return new Gohan ();
         case 'KidBuu':
@@ -120,7 +120,7 @@ Game.prototype.buildStage = function() {
     self.gameElement.appendChild(player1);
 
     player2 = document.createElement('div');
-    player2.setAttribute('id', 'player-two');
+    player2.setAttribute('id', 'broly-standing');
     self.gameElement.appendChild(player2);
 
     self.fightButtonOneElement = document.createElement('button');

@@ -61,7 +61,7 @@ Vegeta.prototype.constructor = Vegeta;
 
 function Gohan () {
     Player.call(this, 500, 70, 100, 100)
-    this.name = 'Teen Gohan';
+    this.name = 'Gohan';
     this.specialAbility = 800;
     this.specialAbilityName = 'Super Kamehameha Wave!';
 }
@@ -80,15 +80,15 @@ function Broly () {
 Broly.prototype = Object.create(Player.prototype);
 Broly.prototype.constructor = Broly;
 
-function Janemba () {
-    Player.call(this, 1500, 100, 100, 100)
-    this.name = 'Janemba';
+function Piccolo () {
+    Player.call(this, 700, 80, 100, 100)
+    this.name = 'Piccolo';
     this.specialAbility = 500;
-    this.specialAbilityName = 'Sword Dash!'
+    this.specialAbilityName = 'Special Beam Cannon!'
 }
 
-Janemba.prototype = Object.create(Player.prototype);
-Janemba.prototype.constructor = Janemba;
+Piccolo.prototype = Object.create(Player.prototype);
+Piccolo.prototype.constructor = Piccolo;
 
 
 function Buu () {
