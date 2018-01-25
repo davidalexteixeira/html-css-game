@@ -170,28 +170,22 @@ html {
     transform: scaleX(-1);
   }
 
-    /* #goku-standing-player-two {
-    float:right;
+
+  #goku-attacking-player-one {
+    float:left;
     margin-left: 50px;
     top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    width: calc(500px / 4);
-    height: 122px;
-    background: url('./Images/Gokustanding.png');
-    animation: animate 0.7s steps(4) infinite;
-   
+    left: 50%;;
+    width: 150px;
+    height: 115px;
+    background: url('./Images/goku-attacking.gif');
+    transform: scaleX(-1);
   }
+  .waa {
+    opacity:0;
+}
 
-  @keyframes animate {
-    from {
-      background-position: 0;
-    }
-    to {
-      background-position: 531px;
-    }
-  } */
-
+ 
 
     /* #vegeta-standing-player-one {
     float:left;

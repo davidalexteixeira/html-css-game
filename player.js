@@ -20,6 +20,7 @@ Player.prototype.special = function (damage) {
 
 Player.prototype.attack = function () {
     var self = this;
+    // self.strength = Math.floor(Math.random() * 40) - self.strength;
     return self.strength;
 };
 
@@ -87,8 +88,8 @@ function Piccolo () {
     this.specialAbilityName = 'Special Beam Cannon!'
 }
 
-Janemba.prototype = Object.create(Player.prototype);
-Janemba.prototype.constructor = Janemba;
+Piccolo.prototype = Object.create(Player.prototype);
+Piccolo.prototype.constructor = Piccolo;
 
 
 function Buu () {

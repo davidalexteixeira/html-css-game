@@ -30,10 +30,19 @@ Battle.prototype.attack = function(command) { //must change to execCommand
     //switch (command)
     // case attack -> check turn and attack
 
-    if (self.currentTurn === 0) {
-        self.playerTwo.receiveDamage(self.playerOne.attack());   
+    var hitChance = Math.floor(Math.random() * 100);
+    var snd = new Audio("./Sounds/woosh.mp3"); // buffers automatically when created
+    var snd1 = new Audio('./Sounds/punch.mp3')
+
+    
+    if (self.currentTurn === 0 && hitChance > 50) { 
+        self.playerTwo.receiveDamage(self.playerOne.attack())
+        snd1.play();
+    } else if (self.currentTurn === 1 && hitChance > 50){
+        self.playerOne.receiveDamage(self.playerTwo.attack())
+        snd1.play();
     } else {
-        self.playerOne.receiveDamage(self.playerTwo.attack()); 
+        snd.play();
     }
     self.checkIfDeath();
     console.log(self.playerOne.name, self.playerOne.health);
