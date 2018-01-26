@@ -26,6 +26,8 @@ function Character (stageElement) {
         self.characterSelect1Element.setAttribute('src', './Images/' + IMAGES[self.idxSelectPlayerOne])
 
         self._setSelectedCharacters();
+        var snd = new Audio("./Sounds/start.mp3");
+        snd.play();
     }
 
     self.handleSelectClick2 = function () {
@@ -38,6 +40,8 @@ function Character (stageElement) {
         self.characterSelect2Element.setAttribute('src', './Images/' + IMAGES[self.idxSelectPlayerTwo])
 
         self._setSelectedCharacters();
+        var snd = new Audio("./Sounds/start.mp3");
+        snd.play();
     }
 
     self.handleSelectedClick = function(event){
@@ -108,6 +112,7 @@ Character.prototype.buildCharacterSelect = function () {
     randomDiv.appendChild(self.nextButton2);
     self.nextButton2.addEventListener('click', self.handleSelectClick2);
     var randomDiv2 = document.createElement('div');
+    randomDiv2.setAttribute('id', 'choose-wrap')
     self.choose1 = document.createElement('button');
     self.choose1.setAttribute('id', 'next-one-button');
     self.choose1.innerText = 'Choose';

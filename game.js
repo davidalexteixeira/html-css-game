@@ -34,6 +34,9 @@ Game.prototype.startGame = function() {
     var player1 = self.createPlayers(self.players[0]);
     var player2 = self.createPlayers(self.players[1]);
 
+    self.playerImagesOne(player1);
+    self.PlayerImagesTwo(player2);
+    
 
     this.battle = new Battle (player1, player2)
 }
@@ -68,26 +71,61 @@ Game.prototype.createPlayers = function(namePlayer) {
 
 };
 
-Game.prototype.playerImages = function(namePlayer) {
-    switch(namePlayer){
+var characterSwitchOne;
+var characterSwitchTwo;
+
+Game.prototype.playerImagesOne = function(player1) {
+    var self = this; 
+
+    self.characterSwitchOne = document.createElement('div');
+    self.characterSwitchOne.setAttribute('id', '');
+    self.gameElement.appendChild(self.characterSwitchOne);
+    
+    switch(player1.name){
         case 'Goku':
-            return 'goku-standing.gif';
+        return self.characterSwitchOne.setAttribute('id', 'goku-standing-player-one');
         case 'Broly':
-            return 'broly-standing.gif';
+        return self.characterSwitchOne.setAttribute('id', 'broly-standing-player-one');
         case 'Beerus':
-            return 'beerus-standing.gif';
+        return self.characterSwitchOne.setAttribute('id', 'beerus-standing-player-one');
         case 'Vegeta':
-            return 'vegeta-standing.gif';
+        return self.characterSwitchOne.setAttribute('id', 'vegeta-standing-player-one');
         case 'Piccolo':
-            return 'piccolo-standing.gif';
+        return self.characterSwitchOne.setAttribute('id', 'piccolo-standing-player-one');
         case 'Gohan':
-            return 'gohan-standing.gif';
+        return self.characterSwitchOne.setAttribute('id', 'gohan-standing-player-one');
         case 'KidBuu':
-            return 'buu-standing.gif';
+        return self.characterSwitchOne.setAttribute('id', 'buu-standing-player-one');
         default:
-         alert('Error occured');
+        alert('Error occured');
     }
-}
+};
+
+Game.prototype.PlayerImagesTwo = function (player2) {
+    var self = this;
+
+    self.characterSwitchTwo = document.createElement('div');
+    self.characterSwitchTwo.setAttribute('id', '');
+    self.gameElement.appendChild(self.characterSwitchTwo);
+    switch(player2.name){
+        case 'Goku':
+            return self.characterSwitchTwo.setAttribute('id', 'goku-standing-player-two');
+        case 'Broly':
+            return self.characterSwitchTwo.setAttribute('id', 'broly-standing-player-two');
+        case 'Beerus':
+            return self.characterSwitchTwo.setAttribute('id', 'beerus-standing-player-two');
+        case 'Vegeta':
+            return self.characterSwitchTwo.setAttribute('id', 'vegeta-standing-player-two');
+        case 'Piccolo':
+            return self.characterSwitchTwo.setAttribute('id', 'piccolo-standing-player-two');
+        case 'Gohan':
+            return self.characterSwitchTwo.setAttribute('id', 'gohan-standing-player-two');
+        case 'KidBuu':
+            return self.characterSwitchTwo.setAttribute('id', 'buu-standing-player-two');
+        default:
+            alert('Error occured');
+    }
+};
 
 
 Game.prototype.checkIfIsOver = function () {
@@ -148,13 +186,13 @@ Game.prototype.buildStage = function() {
     buttonWrap.setAttribute('id','game-wrapper');
     self.gameElement.appendChild(buttonWrap);
 
-    player1 = document.createElement('div');
-    player1.setAttribute('id', 'goku-standing-player-one');
-    self.gameElement.appendChild(player1);
+    // player1 = document.createElement('div');
+    // player1.setAttribute('id', 'goku-standing-player-one');
+    // self.gameElement.appendChild(player1);
 
-    player2 = document.createElement('div');
-    player2.setAttribute('id', 'broly-standing-player-two');
-    self.gameElement.appendChild(player2);
+    // player2 = document.createElement('div');
+    // player2.setAttribute('id', 'broly-standing-player-two');
+    // self.gameElement.appendChild(player2);
 
     self.fightButtonOneElement = document.createElement('button');
     self.fightButtonOneElement.setAttribute('id', 'fight');

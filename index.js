@@ -9,10 +9,13 @@ function main () {
 
     var splashElement;
     var startGameButton;
+    
 
     var handleStartClick = function () {
         destroySplash();
         buildCharacterSelect();
+        var snd = new Audio("./Sounds/start.mp3");
+        snd.play();
     };
 
     //@todo top level variables 
@@ -64,6 +67,8 @@ function main () {
         selectCharacter.onCharacterSelected(function (players) {
             destroyCharacterSelect();
             buildGame(players);
+            var snd = new Audio("./Sounds/start.mp3");
+             snd.play();
         });
 
 
@@ -105,6 +110,8 @@ function main () {
     var handleGameOverClick = function () {
         destroyGameOver();
         buildCharacterSelect();
+        var snd = new Audio("./Sounds/start.mp3");
+        snd.play();
     };
 
     function buildGameOver (name){
