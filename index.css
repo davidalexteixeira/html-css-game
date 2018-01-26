@@ -40,120 +40,120 @@ html {
   
   /* ---- layout ---- */
   
-  #site-header {}
-  
-  #site-footer {}
-  
-  #site-main {
-      color: black;
-      height: 100%;
+#site-header {}
 
-  }
-  
-  #splash {
-      text-align: center;
-      background-image: url('./Images/starting.webp');
-      background-size: cover;
-      height: 100%;
-      background-size: 100% 100%;
-  }
+#site-footer {}
 
-  #game-over{
-      text-align: center;
-  }
-  
-  #button {
-      color:#F4ED09;
-      background-color: red;
-      border-color: 1px solid #F4ED09;
-      border-radius: 5px;
-  }
+#site-main {
+  color: black;
+  height: 100%;
 
-  #game {
-      background-image: url('./Images/dragonstage.gif');
-      background-size: cover;
-      height: 100%;
-      background-size: 100% 100%;
-      text-align: center;
-  }
+}
 
-  #game-over{
-    background-image: url('./Images/dragonstage.gif');
-    background-size: cover;
-    height: 100%;
-    background-size: 100% 100%;
-  }
-  
-  #fight {
-    color:#F4ED09;
-    background-color: red;
-    border-color: 1px solid #F4ED09;
-    border-radius: 5px;
-  }
+#splash {
+  text-align: center;
+  background-image: url('./Images/starting.webp');
+  background-size: cover;
+  height: 100%;
+  background-size: 100% 100%;
+}
 
-  #special{
-    color:#F4ED09;
-    background-color: red;
-    border-color: 1px solid #F4ED09;
-    border-radius: 5px;
-  }
+#game-over{
+  text-align: center;
+}
 
-  #health-wrap{
-    display: flex;
-    justify-content: space-between;
-  }
+#button {
+  color:#F4ED09;
+  background-color: red;
+  border-color: 1px solid #F4ED09;
+  border-radius: 5px;
+}
 
-  .health-bar{
-    color:#F4ED09;
-    background-color: green;
-    border-radius: 5px;
-    max-width: 48px;
-  }
+#game {
+  background-image: url('./Images/dragonstage.gif');
+  background-size: cover;
+  height: 100%;
+  background-size: 100% 100%;
+  text-align: center;
+}
 
-  #select-one {
-      height: 50%;
-      margin: 50px;
-  }
+#game-over{
+  background-image: url('./Images/dragonstage.gif');
+  background-size: cover;
+  height: 100%;
+  background-size: 100% 100%;
+}
 
-  #select-two{
-      height: 50%;
-      margin: 50px;
-  }
+#fight {
+  color:#F4ED09;
+  background-color: red;
+  border-color: 1px solid #F4ED09;
+  border-radius: 5px;
+}
 
-  #next-one-button {
-    margin-left: -160px;
-    margin-bottom: 50px;
-    margin-right: 220px;
-    color:#F4ED09;
-    background-color: red;
-    border-color: 1px solid #F4ED09;
-    border-radius: 5px;
-  }
+#special{
+  color:#F4ED09;
+  background-color: red;
+  border-color: 1px solid #F4ED09;
+  border-radius: 5px;
+}
 
-  #next-two-button {
-    color:#F4ED09;
-    background-color: red;
-    border-color: 1px solid #F4ED09;
-    border-radius: 5px;
-  }
+#health-wrap{
+  display: flex;
+  justify-content: space-between;
+}
 
-  #choose-wrap{
-    margin-left: 220px;
-  }
+.health-bar{
+  color:#F4ED09;
+  background-color: green;
+  border-radius: 5px;
+  max-width: 48px;
+}
 
-  #game-wrapper{
-    height: 50%;
-    width: 50%;
-  }
+#select-one {
+  height: 50%;
+  margin: 50px;
+}
 
-  #player-one {
-    height: 150px;
-    width: 150px;
-    border: 4px solid red;
-    float: left;
-    margin-left: 150px;
-  }
-  
+#select-two{
+  height: 50%;
+  margin: 50px;
+}
+
+#next-one-button {
+  margin-left: -160px;
+  margin-bottom: 50px;
+  margin-right: 220px;
+  color:#F4ED09;
+  background-color: red;
+  border-color: 1px solid #F4ED09;
+  border-radius: 5px;
+}
+
+#next-two-button {
+  color:#F4ED09;
+  background-color: red;
+  border-color: 1px solid #F4ED09;
+  border-radius: 5px;
+}
+
+#choose-wrap{
+  margin-left: 220px;
+}
+
+#game-wrapper{
+  height: 50%;
+  width: 50%;
+}
+
+#player-one {
+  height: 150px;
+  width: 150px;
+  border: 4px solid red;
+  float: left;
+  margin-left: 150px;
+}
+
 #player-two {
   height: 150px;
   width: 150px;
@@ -163,173 +163,168 @@ html {
   }
 
 
-  #goku-standing-player-one {
-    float:left;
-    margin-left: 50px;
-    top: 50%;
-    left: 50%;;
-    width: 110px;
-    height: 115px;
-    background: url('./Images/goku-standing.gif');
-    transform: scaleX(-1);
-  }
-
-  #goku-standing-player-two {
-    float:right;
-    margin-right: 50px;
-    top: 50%;
-    left: 50%;;
-    width: 110px;
-    height: 115px;
-    background: url('./Images/goku-standing.gif');
-  }
-
-
-  #goku-attacking-player-one {
-    float:left;
-    margin-left: 50px;
-    top: 50%;
-    left: 50%;;
-    width: 150px;
-    height: 115px;
-    background: url('./Images/goku-attacking.gif');
-    transform: scaleX(-1);
-  }
-  .waa {
-    opacity:0;
+#goku-standing-player-one {
+  float:left;
+  margin-left: 50px;
+  top: 50%;
+  left: 50%;;
+  width: 110px;
+  height: 115px;
+  background: url('./Images/goku-standing.gif');
+  transform: scaleX(-1);
 }
 
-  #vegeta-standing-player-one {
-    float:left;
-    margin-left: 50px;
-    top: 50%;
-    left: 50%;;
-    width: 90px;
-    height: 115px;
-    background: url('./Images/vegeta-standing.gif');
-    transform: scaleX(-1);
-  }
-
-    #vegeta-standing-player-two {
-    float:right ;
-    margin-right: 50px;
-    top: 50%;
-    left: 50%;;
-    width: 90px;
-    height: 115px;
-    background: url('./Images/vegeta-standing.gif');
-  }
+#goku-standing-player-two {
+  float:right;
+  margin-right: 50px;
+  top: 50%;
+  left: 50%;;
+  width: 110px;
+  height: 115px;
+  background: url('./Images/goku-standing.gif');
+}
 
 
-   #gohan-standing-player-one {
-    float:left;
-    margin-left: 50px;
-    top: 50%;
-    left: 50%;;
-    width: 95px;
-    height: 165px;
-    background: url('./Images/gohan-standing.gif');
-    transform: scaleX(-1);
-  }
+#goku-attacking-player-one {
+  float:left;
+  margin-left: 50px;
+  top: 50%;
+  left: 50%;;
+  width: 150px;
+  height: 115px;
+  background: url('./Images/goku-attacking.gif');
+  transform: scaleX(-1);
+}
 
-   #gohan-standing-player-two {
-    float:right;
-    margin-right: 50px;
-    top: 50%;
-    left: 50%;;
-    width: 95px;
-    height: 165px;
-    background: url('./Images/gohan-standing.gif');
-  }
+#vegeta-standing-player-one {
+  float:left;
+  margin-left: 50px;
+  top: 50%;
+  left: 50%;;
+  width: 90px;
+  height: 115px;
+  background: url('./Images/vegeta-standing.gif');
+  transform: scaleX(-1);
+}
 
-
-   #buu-standing-player-one {
-    float:left;
-    margin-left: 50px;
-    top: 50%;
-    left: 50%;;
-    width: 85px;
-    height: 120px;
-    background: url('./Images/kidbuu-standing.gif');
-    transform: scaleX(-1);
-  }
-
-
-   #buu-standing-player-two{
-    float:right;
-    margin-right: 50px;
-    top: 50%;
-    left: 50%;;
-    width: 85px;
-    height: 120px;;
-    background: url('./Images/kidbuu-standing.gif');
-  }
+#vegeta-standing-player-two {
+  float:right ;
+  margin-right: 50px;
+  top: 50%;
+  left: 50%;;
+  width: 90px;
+  height: 115px;
+  background: url('./Images/vegeta-standing.gif');
+}
 
 
-   #piccolo-standing-player-one{
-    float:left;
-    margin-left: 50px;
-    top: 50%;
-    left: 50%;;
-    width: 130px;
-    height: 160px;
-    background: url('./Images/piccolo-standing.gif');
-    transform: scaleX(-1);
-  }
+#gohan-standing-player-one {
+  float:left;
+  margin-left: 50px;
+  top: 50%;
+  left: 50%;;
+  width: 95px;
+  height: 165px;
+  background: url('./Images/gohan-standing.gif');
+  transform: scaleX(-1);
+}
 
-   #piccolo-standing-player-two{
-    float:right;
-    margin-right: 50px;
-    top: 50%;
-    left: 50%;;
-    width: 130px;
-    height: 160px;
-    background: url('./Images/piccolo-standing.gif');
- 
-  }
-
-   #broly-standing-player-one{
-    float:left;
-    margin-left: 50px;
-    top: 50%;
-    left: 50%;
-    width: 120px;
-    height: 200px;
-    background: url('./Images/broly-standing.gif');
-    transform: scaleX(-1);
-  }
-
-  #broly-standing-player-two {
-    float:right;
-    margin-right: 50px;
-    top: 50%;
-    left: 50%;
-    width: 120px;
-    height: 200px;
-    background: url('./Images/broly-standing.gif');
-  }  
+#gohan-standing-player-two {
+  float:right;
+  margin-right: 50px;
+  top: 50%;
+  left: 50%;;
+  width: 95px;
+  height: 165px;
+  background: url('./Images/gohan-standing.gif');
+}
 
 
-      #beerus-standing-player-one{
-    float:left;
-    margin-left: 50px;
-    top: 50%;
-    left: 50%;
-    width: 75px;
-    height: 175px;
-    background: url('./Images/beerus-standing.gif');
-    transform: scaleX(-1);
-  }
+#buu-standing-player-one {
+  float:left;
+  margin-left: 50px;
+  top: 50%;
+  left: 50%;;
+  width: 85px;
+  height: 120px;
+  background: url('./Images/kidbuu-standing.gif');
+  transform: scaleX(-1);
+}
 
-   #beerus-standing-player-two{
-    float:right;
-    margin-right: 50px;
-    top: 50%;
-    left: 50%;
-    width: 75px;
-    height: 175px;
-    background: url('./Images/beerus-standing.gif');
 
-  }
+#buu-standing-player-two{
+  float:right;
+  margin-right: 50px;
+  top: 50%;
+  left: 50%;;
+  width: 85px;
+  height: 120px;;
+  background: url('./Images/kidbuu-standing.gif');
+}
+
+
+#piccolo-standing-player-one{
+  float:left;
+  margin-left: 50px;
+  top: 50%;
+  left: 50%;;
+  width: 130px;
+  height: 160px;
+  background: url('./Images/piccolo-standing.gif');
+  transform: scaleX(-1);
+}
+
+#piccolo-standing-player-two{
+  float:right;
+  margin-right: 50px;
+  top: 50%;
+  left: 50%;;
+  width: 130px;
+  height: 160px;
+  background: url('./Images/piccolo-standing.gif');
+
+}
+
+#broly-standing-player-one{
+  float:left;
+  margin-left: 50px;
+  top: 50%;
+  left: 50%;
+  width: 120px;
+  height: 200px;
+  background: url('./Images/broly-standing.gif');
+  transform: scaleX(-1);
+}
+
+#broly-standing-player-two {
+  float:right;
+  margin-right: 50px;
+  top: 50%;
+  left: 50%;
+  width: 120px;
+  height: 200px;
+  background: url('./Images/broly-standing.gif');
+}  
+
+#beerus-standing-player-one{
+  float:left;
+  margin-left: 50px;
+  top: 50%;
+  left: 50%;
+  width: 75px;
+  height: 175px;
+  background: url('./Images/beerus-standing.gif');
+  transform: scaleX(-1);
+}
+
+#beerus-standing-player-two{
+  float:right;
+  margin-right: 50px;
+  top: 50%;
+  left: 50%;
+  width: 75px;
+  height: 175px;
+  background: url('./Images/beerus-standing.gif');
+}
 
   /* ---- components ----*/
