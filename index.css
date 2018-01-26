@@ -204,146 +204,80 @@ html {
     margin-left: 50px;
     top: 50%;
     left: 50%;;
-    width: 150px;
+    width: 90px;
     height: 115px;
-    background: url('./Images/vegeta-attacking.gif');
+    background: url('./Images/vegeta-standing.gif');
     transform: scaleX(-1);
   }
 
-    /* #vegeta-standing-player-two {
-    float:right;
-    margin-left: 50px;
+    #vegeta-standing-player-two {
+    float:right ;
+    margin-right: 50px;
     top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    width: calc(500px / 4);
-    height: 122px;
-    background: url('./Images/vegeta-standing.png');
-    animation: animate 0.7s steps(4) infinite;
+    left: 50%;;
+    width: 90px;
+    height: 115px;
+    background: url('./Images/vegeta-standing.gif');
   }
 
-  @keyframes animate {
-    from {
-      background-position: 0;
-    }
-    to {
-      background-position: 531px;
-    }
-  } */
 
-
-    /* #gohan-standing-player-one {
+   #gohan-standing-player-one {
     float:left;
     margin-left: 50px;
     top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    width: calc(500px / 4);
-    height: 122px;
-    background: url('./Images/gohan-standing.png');
-    animation: animate 0.7s steps(4) infinite;
-    -webkit-transform: scaleX(-1);
+    left: 50%;;
+    width: 95px;
+    height: 165px;
+    background: url('./Images/gohan-standing.gif');
     transform: scaleX(-1);
   }
 
-  @keyframes animate {
-    from {
-      background-position: 0;
-    }
-    to {
-      background-position: 531px;
-    }
-  } */
-
-      /* #gohan-standing-player-two {
+   #gohan-standing-player-two {
     float:right;
-    margin-left: 50px;
+    margin-right: 50px;
     top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    width: calc(500px / 4);
-    height: 122px;
-    background: url('./Images/gohan-standing.png');
-    animation: animate 0.7s steps(4) infinite;
+    left: 50%;;
+    width: 95px;
+    height: 165px;
+    background: url('./Images/gohan-standing.gif');
   }
 
-  @keyframes animate {
-    from {
-      background-position: 0;
-    }
-    to {
-      background-position: 531px;
-    }
-  } */
 
-      /* #buu-standing-player-one {
+   #buu-standing-player-one {
     float:left;
     margin-left: 50px;
     top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    width: calc(500px / 4);
-    height: 122px;
-    background: url('./Images/kidbuu-standing.png');
-    animation: animate 0.7s steps(4) infinite;
-    -webkit-transform: scaleX(-1);
+    left: 50%;;
+    width: 85px;
+    height: 120px;
+    background: url('./Images/kidbuu-standing.gif');
     transform: scaleX(-1);
   }
 
-  @keyframes animate {
-    from {
-      background-position: 0;
-    }
-    to {
-      background-position: 531px;
-    }
-  } */
 
-       /* #buu-standing-player-two{
+   #buu-standing-player-two{
     float:right;
-    margin-left: 50px;
+    margin-right: 50px;
     top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    width: calc(500px / 4);
-    height: 122px;
-    background: url('./Images/kidbuu-standing.png');
-    animation: animate 0.7s steps(4) infinite;
+    left: 50%;;
+    width: 85px;
+    height: 120px;;
+    background: url('./Images/kidbuu-standing.gif');
   }
 
-  @keyframes animate {
-    from {
-      background-position: 0;
-    }
-    to {
-      background-position: 531px;
-    }
-  } */
 
-         /* #piccolo-standing-player-one{
+   #piccolo-standing-player-one{
     float:left;
     margin-left: 50px;
     top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    width: calc(500px / 4);
-    height: 122px;
-    background: url('./Images/piccolo-standing.png');
-    animation: animate 0.7s steps(4) infinite;
-    -webkit-transform: scaleX(-1);
+    left: 50%;;
+    width: 130px;
+    height: 160px;
+    background: url('./Images/piccolo-standing.gif');
     transform: scaleX(-1);
   }
 
-  @keyframes animate {
-    from {
-      background-position: 0;
-    }
-    to {
-      background-position: 531px;
-    }
-  } */
-
-       /* #piccolo-standing-player-two{
+        /* #piccolo-standing-player-two{
     float:right;
     margin-left: 50px;
     top: 50%;
@@ -364,30 +298,16 @@ html {
     }
   } */
 
-       /* #broly-standing-player-one{
-    float: left;
+   #broly-standing-player-one{
+    float:left;
     margin-left: 50px;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%);
-    width: calc(500px / 4);
-    height: 122px;
-    background: url('./Images/broly-standing.png');
-    animation: animate 0.7s steps(4) infinite;
-    -webkit-transform: scaleX(-1);
+    width: 120px;
+    height: 200px;
+    background: url('./Images/broly-standing.gif');
     transform: scaleX(-1);
   }
-
-  @keyframes animate {
-    from {
-      background-position: 0;
-    }
-    to {
-      background-position: 531px;
-    }
-  } */
-
-
 
   #broly-standing-player-two {
     float:right;
@@ -400,47 +320,26 @@ html {
   }  
 
 
-        /* #beerus-standing-player-one{
+      #beerus-standing-player-one{
     float:left;
     margin-left: 50px;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%);
-    width: calc(500px / 4);
-    height: 122px;
-    background: url('./Images/beerus-standing.png');
-    animation: animate 0.7s steps(4) infinite;
-    -webkit-transform: scaleX(-1);
+    width: 75px;
+    height: 175px;
+    background: url('./Images/beerus-standing.gif');
     transform: scaleX(-1);
   }
 
-  @keyframes animate {
-    from {
-      background-position: 0;
-    }
-    to {
-      background-position: 531px;
-    }
-  } */
-
-       /* #beerus-standing-player-two{
+   #beerus-standing-player-two{
     float:right;
-    margin-left: 50px;
+    margin-right: 50px;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%);
-    width: calc(500px / 4);
-    height: 122px;
-    background: url('./Images/piccolo-standing.png');
-    animation: animate 0.7s steps(4) infinite;
+    width: 75px;
+    height: 175px;
+    background: url('./Images/beerus-standing.gif');
+
   }
 
-  @keyframes animate {
-    from {
-      background-position: 0;
-    }
-    to {
-      background-position: 531px;
-    }
-  } */
   /* ---- components ----*/

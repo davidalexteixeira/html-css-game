@@ -94,7 +94,7 @@ Game.prototype.playerImagesOne = function(player1) {
         return self.characterSwitchOne.setAttribute('id', 'piccolo-standing-player-one');
         case 'Gohan':
         return self.characterSwitchOne.setAttribute('id', 'gohan-standing-player-one');
-        case 'KidBuu':
+        case 'Kid Buu':
         return self.characterSwitchOne.setAttribute('id', 'buu-standing-player-one');
         default:
         alert('Error occured');
@@ -120,7 +120,7 @@ Game.prototype.PlayerImagesTwo = function (player2) {
             return self.characterSwitchTwo.setAttribute('id', 'piccolo-standing-player-two');
         case 'Gohan':
             return self.characterSwitchTwo.setAttribute('id', 'gohan-standing-player-two');
-        case 'KidBuu':
+        case 'Kid Buu':
             return self.characterSwitchTwo.setAttribute('id', 'buu-standing-player-two');
         default:
             alert('Error occured');
