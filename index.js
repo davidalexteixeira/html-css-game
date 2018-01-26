@@ -18,10 +18,6 @@ function main () {
         snd.play();
     };
 
-    //@todo top level variables 
-    //@todo constant variables that don't change 
-
-
     function buildSplash(){
         //@todo build div
         stage = 'splash';
@@ -53,6 +49,8 @@ function main () {
 
     };
 
+    //CHARACTER SELECT STAGE
+
     var stageElement;
     
     function buildCharacterSelect(){
@@ -77,6 +75,8 @@ function main () {
     function destroyCharacterSelect() {
         stageElement.remove();
     };
+
+    //BUILD GAME STAGE
 
     var fightButton;
     var gameElement;
@@ -127,7 +127,7 @@ function main () {
 
         var endElement = document.querySelector('#site-main');
         endElement.appendChild(gameOverElement);
-        //@todo create a button
+       
 
         gameOverButton = document.createElement('button')
         gameOverButton.innerText = 'Continue?';
@@ -142,8 +142,7 @@ function main () {
     };
 
     function destroyGameOver (){
-        //@todo remove buildGameOver
-        //@todo call buildGame
+        
         gameOverButton.removeEventListener('click', handleGameOverClick);
         gameOverElement.remove();
 

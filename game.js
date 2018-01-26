@@ -15,7 +15,7 @@ function Game (gameElement, players){
     this.battle;
 
     this.init();
-}
+};
 
 Game.prototype.init = function() {
     var self = this;
@@ -23,7 +23,7 @@ Game.prototype.init = function() {
     self.buildStage();
     self.startGame();
     self.updateHealth();
-}
+};
 
 Game.prototype.startGame = function() {
     //iterate self.player
@@ -39,13 +39,13 @@ Game.prototype.startGame = function() {
     
 
     this.battle = new Battle (player1, player2)
-}
+};
 
 Game.prototype.onGameOver = function(callback) {
     var self = this;
     
     self.onEnded = callback;
-}
+};
 
 Game.prototype.createPlayers = function(namePlayer) {
     //switch by name and return the created Character
@@ -107,6 +107,7 @@ Game.prototype.PlayerImagesTwo = function (player2) {
     self.characterSwitchTwo = document.createElement('div');
     self.characterSwitchTwo.setAttribute('id', '');
     self.gameElement.appendChild(self.characterSwitchTwo);
+
     switch(player2.name){
         case 'Goku':
             return self.characterSwitchTwo.setAttribute('id', 'goku-standing-player-two');
@@ -141,9 +142,8 @@ Game.prototype.checkIfIsOver = function () {
 
 Game.prototype.attackClick = function (e) {
     var self = this;
-    console.log(e);
-    var command = 'commnad' //grab the id from the e.currentTarget
-    self.battle.attack(); // change name to execCommand
+
+    self.battle.attack(); 
     self.checkIfIsOver();
     self.updateHealth();
     
@@ -155,7 +155,7 @@ Game.prototype.updateHealth = function () {
     var self = this;
     document.querySelectorAll('.health-bar')[0].innerText = (self.battle.playerOne.name + ' ' + self.battle.playerOne.health)
     document.querySelectorAll('.health-bar')[1].innerText = (self.battle.playerTwo.name + ' ' + self.battle.playerTwo.health)
-}
+};
 
 Game.prototype.specialAttackClick = function () {
     var self = this;
@@ -186,14 +186,6 @@ Game.prototype.buildStage = function() {
     buttonWrap.setAttribute('id','game-wrapper');
     self.gameElement.appendChild(buttonWrap);
 
-    // player1 = document.createElement('div');
-    // player1.setAttribute('id', 'goku-standing-player-one');
-    // self.gameElement.appendChild(player1);
-
-    // player2 = document.createElement('div');
-    // player2.setAttribute('id', 'broly-standing-player-two');
-    // self.gameElement.appendChild(player2);
-
     self.fightButtonOneElement = document.createElement('button');
     self.fightButtonOneElement.setAttribute('id', 'fight');
     self.fightButtonOneElement.innerText = 'Attack One';
@@ -214,13 +206,12 @@ Game.prototype.buildStage = function() {
     self.gameElement.appendChild(self.defenseBonusElement);
 
     self.defenseBonusElement.addEventListener('click', self.defenseButtonClick.bind(self));
-
-    //Health Bar # 1
+  
     self.healthBar1 = document.createElement('div');
     self.healthBar1.setAttribute('class', 'health-bar')
     self.healthBar1.innerText = self.players[0];
     self.gameElement.appendChild(self.healthBar1);
-    // // //Health bar # 2
+ 
     self.healthBar2 = document.createElement('div');
     self.healthBar2.setAttribute('class', 'health-bar')
     self.healthBar2.innerText = self.players[1];
@@ -231,7 +222,7 @@ Game.prototype.buildStage = function() {
     healthWrap.appendChild(self.healthBar2);
     self.gameElement.appendChild(healthWrap);
 
-}
+};
 
 
 
