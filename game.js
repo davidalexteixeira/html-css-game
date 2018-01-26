@@ -29,6 +29,7 @@ Game.prototype.init = function() {
     self.buildStage();
     self.startGame();
     self.updateHealth();
+    self.buildHighLightPlayerOne();
 };
 
 Game.prototype.startGame = function() {
@@ -217,6 +218,7 @@ Game.prototype.buildHighLightPlayerTwo = function (){
 
 Game.prototype.whosTurnIsIt = function() {
     var self = this;
+
 
     if(self.battle.currentTurn === 1){
         self.buildHighLightPlayerOne();
