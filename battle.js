@@ -1,10 +1,11 @@
 'use strict';
 
-function Battle (playerOne, playerTwo) {
+function Battle (playerOne, playerTwo, gameElement) {
     this.playerOne = playerOne;
     this.playerTwo = playerTwo;
     this.currentTurn;
     this.playerCount;
+    this.gameElement;
 
     this.init();
 }
@@ -33,7 +34,6 @@ Battle.prototype.attack = function(command) { //must change to execCommand
     var hitChance = Math.floor(Math.random() * 100);
     var snd = new Audio("./Sounds/woosh.mp3");
     var snd1 = new Audio('./Sounds/punch.mp3');
-
     
     if (self.currentTurn === 0 && hitChance > 50) { 
         self.playerTwo.receiveDamage(self.playerOne.attack())
@@ -47,6 +47,7 @@ Battle.prototype.attack = function(command) { //must change to execCommand
     self.checkIfDeath();
     console.log(self.playerOne.name, self.playerOne.health);
     console.log(self.playerTwo.name, self.playerTwo.health);
+    
 }
 
 Battle.prototype.specialAttack = function () {
@@ -100,4 +101,5 @@ Battle.prototype.checkIfDeath = function() {
         self.playerTwo.isDead = true;
     }  
 }
+
 

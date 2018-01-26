@@ -116,8 +116,7 @@ function main () {
 
     function buildGameOver (name){
         stage = 'gameOver';
-        //@todo create div
-
+        
         gameOverElement = document.createElement('div');
         gameOverElement.setAttribute('id', 'game-over');
 
@@ -142,7 +141,7 @@ function main () {
     };
 
     function destroyGameOver (){
-        
+
         gameOverButton.removeEventListener('click', handleGameOverClick);
         gameOverElement.remove();
 

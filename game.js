@@ -6,11 +6,17 @@ function Game (gameElement, players){
     this.players = players;
     this.fightButtonOneElement;
     this.fightButtonTwoElement;
+    this.fightButtonThreeElement
+    this.fightButtonFourElement;
     this.defenseBonusElement;
+    this.defenseBonusOneElement;
     this.characterOne;
     this.characterTwo;
     this.healthBar1;
     this.healthBar2;
+    this.highLightPlayerOne;
+    this.highLightPlayerTwo;
+    this.gameWrap;
     this.onEnded;
     this.battle;
 
@@ -79,7 +85,7 @@ Game.prototype.playerImagesOne = function(player1) {
 
     self.characterSwitchOne = document.createElement('div');
     self.characterSwitchOne.setAttribute('id', '');
-    self.gameElement.appendChild(self.characterSwitchOne);
+    self.gameWrap.appendChild(self.characterSwitchOne);
     
     switch(player1.name){
         case 'Goku':
@@ -106,7 +112,7 @@ Game.prototype.PlayerImagesTwo = function (player2) {
 
     self.characterSwitchTwo = document.createElement('div');
     self.characterSwitchTwo.setAttribute('id', '');
-    self.gameElement.appendChild(self.characterSwitchTwo);
+    self.gameWrap.appendChild(self.characterSwitchTwo);
 
     switch(player2.name){
         case 'Goku':
@@ -143,13 +149,88 @@ Game.prototype.checkIfIsOver = function () {
 Game.prototype.attackClick = function (e) {
     var self = this;
 
+    self.whosTurnIsIt();
     self.battle.attack(); 
     self.checkIfIsOver();
     self.updateHealth();
-    
     console.log(self.battle.playerOne.health)
     self.battle.updateTurn();
+    
 };
+
+Game.prototype.buildHighLightPlayerOne = function () {
+    var self = this;
+
+    if(self.battle.playerOne.name === 'Goku'){
+        self.highLightPlayerOne = document.getElementById('goku-standing-player-one'); 
+        self.highLightPlayerOne.className = 'goku-standing-player-one-turn';
+    }else if (self.battle.playerOne.name === 'Broly') {
+        self.highLightPlayerOne = document.getElementById('broly-standing-player-one'); 
+        self.highLightPlayerOne.className = 'broly-standing-player-one-turn';
+    }else if (self.battle.playerOne.name === 'Beerus') {
+        self.highLightPlayerOne = document.getElementById('beerus-standing-player-one'); 
+        self.highLightPlayerOne.className = 'beerus-standing-player-one-turn';
+    }else if (self.battle.playerOne.name === 'Vegeta') {
+        self.highLightPlayerOne = document.getElementById('vegeta-standing-player-one'); 
+        self.highLightPlayerOne.className = 'vegeta-standing-player-one-turn';
+    }else if (self.battle.playerOne.name === 'Piccolo') {
+        self.highLightPlayerOne = document.getElementById('piccolo-standing-player-one'); 
+        self.highLightPlayerOne.className = 'piccolo-standing-player-one-turn';
+    }else if (self.battle.playerOne.name === 'Gohan') {
+        self.highLightPlayerOne = document.getElementById('gohan-standing-player-one'); 
+        self.highLightPlayerOne.className = 'gohan-standing-player-one-turn';
+    }else if (self.battle.playerOne.name === 'Kid Buu') {
+        self.highLightPlayerOne = document.getElementById('buu-standing-player-one'); 
+        self.highLightPlayerOne.className = 'buu-standing-player-one-turn';
+    }
+    
+}
+Game.prototype.buildHighLightPlayerTwo = function (){
+    
+    var self = this;
+    
+    if(self.battle.playerTwo.name === 'Goku'){
+        self.highLightPlayerTwo = document.getElementById('goku-standing-player-two'); 
+        self.highLightPlayerTwo.className = 'goku-standing-player-two-turn';
+    }else if (self.battle.playerTwo.name === 'Broly') {
+        self.highLightPlayerTwo = document.getElementById('broly-standing-player-two'); 
+        self.highLightPlayerTwo.className = 'broly-standing-player-two-turn';
+    }else if (self.battle.playerTwo.name === 'Beerus') {
+        self.highLightPlayerTwo = document.getElementById('beerus-standing-player-two'); 
+        self.highLightPlayerTwo.className = 'beerus-standing-player-two-turn';
+    }else if (self.battle.playerTwo.name === 'Vegeta') {
+        self.highLightPlayerTwo = document.getElementById('vegeta-standing-player-two'); 
+        self.highLightPlayerTwo.className = 'vegeta-standing-player-two-turn';
+    }else if (self.battle.playerTwo.name === 'Piccolo') {
+        self.highLightPlayerTwo = document.getElementById('piccolo-standing-player-two'); 
+        self.highLightPlayerTwo.className = 'piccolo-standing-player-two-turn';
+    }else if (self.battle.playerTwo.name === 'Gohan') {
+        self.highLightPlayerTwo = document.getElementById('gohan-standing-player-two'); 
+        self.highLightPlayerTwo.className = 'gohan-standing-player-two-turn';
+    }else if (self.battle.playerTwo.name === 'Kid Buu') {
+        self.highLightPlayerTwo = document.getElementById('buu-standing-player-two'); 
+        self.highLightPlayerTwo.className = 'buu-standing-player-two-turn';
+    }   
+}
+
+
+
+Game.prototype.whosTurnIsIt = function() {
+    var self = this;
+
+    if(self.battle.currentTurn === 1){
+        self.buildHighLightPlayerOne();
+        if(self.highLightPlayerTwo) {
+            self.highLightPlayerTwo.removeAttribute('class');
+        }
+    } else {
+        self.buildHighLightPlayerTwo();
+            if(self.highLightPlayerOne) {
+              self.highLightPlayerOne.removeAttribute('class');
+    };
+        
+    }
+}
 
 Game.prototype.updateHealth = function () {
     var self = this;
@@ -159,68 +240,98 @@ Game.prototype.updateHealth = function () {
 
 Game.prototype.specialAttackClick = function () {
     var self = this;
+
+    self.whosTurnIsIt();
     self.battle.specialAttack();
     self.checkIfIsOver();
     self.battle.updateTurn();
     self.updateHealth();
+    
 };
 
 Game.prototype.defenseButtonClick = function () {
     var self = this;
+
+    self.whosTurnIsIt();
     self.battle.defensiveBonus();
     self.checkIfIsOver();
     self.battle.updateTurn();
     self.updateHealth();
+    
 };
+
 
 
 Game.prototype.buildStage = function() {
     var self = this;
 
-    var buttonWrap;
+ 
     var healthWrap;
     var player1;
     var player2;
 
-    buttonWrap = document.createElement('div');
-    buttonWrap.setAttribute('id','game-wrapper');
-    self.gameElement.appendChild(buttonWrap);
+    self.gameWrap = document.createElement('div');
+    self.gameWrap.setAttribute('id', 'stage-wrap')
+    self.gameElement.appendChild(self.gameWrap);
+
 
     self.fightButtonOneElement = document.createElement('button');
     self.fightButtonOneElement.setAttribute('id', 'fight');
     self.fightButtonOneElement.innerText = 'Attack One';
-    self.gameElement.appendChild(self.fightButtonOneElement);
+    self.gameWrap.appendChild(self.fightButtonOneElement);
 
     self.fightButtonOneElement.addEventListener('click', self.attackClick.bind(self));
     
     self.fightButtonTwoElement = document.createElement('button');
     self.fightButtonTwoElement.setAttribute('id', 'special');
     self.fightButtonTwoElement.innerText = 'Special Attack';
-    self.gameElement.appendChild(self.fightButtonTwoElement);
+    self.gameWrap.appendChild(self.fightButtonTwoElement);
 
     self.fightButtonTwoElement.addEventListener('click', self.specialAttackClick.bind(self));
 
     self.defenseBonusElement = document.createElement('button');
     self.defenseBonusElement.setAttribute('id', 'special');
     self.defenseBonusElement.innerText = 'Defense';
-    self.gameElement.appendChild(self.defenseBonusElement);
+    self.gameWrap.appendChild(self.defenseBonusElement);
 
     self.defenseBonusElement.addEventListener('click', self.defenseButtonClick.bind(self));
+
+
+    self.fightButtonThreeElement = document.createElement('button');
+    self.fightButtonThreeElement.setAttribute('id', 'fight2');
+    self.fightButtonThreeElement.innerText = 'Attack One';
+    self.gameWrap.appendChild(self.fightButtonThreeElement);
+
+    self.fightButtonThreeElement.addEventListener('click', self.attackClick.bind(self));
+    
+    self.fightButtonFourElement = document.createElement('button');
+    self.fightButtonFourElement.setAttribute('id', 'special2');
+    self.fightButtonFourElement.innerText = 'Special Attack';
+    self.gameWrap.appendChild(self.fightButtonFourElement);
+
+    self.fightButtonFourElement.addEventListener('click', self.specialAttackClick.bind(self));
+
+    self.defenseBonusOneElement = document.createElement('button');
+    self.defenseBonusOneElement.setAttribute('id', 'special2');
+    self.defenseBonusOneElement.innerText = 'Defense';
+    self.gameWrap.appendChild(self.defenseBonusOneElement);
+
+    self.defenseBonusOneElement.addEventListener('click', self.defenseButtonClick.bind(self));
   
     self.healthBar1 = document.createElement('div');
     self.healthBar1.setAttribute('class', 'health-bar')
     self.healthBar1.innerText = self.players[0];
-    self.gameElement.appendChild(self.healthBar1);
+    self.gameWrap.appendChild(self.healthBar1);
  
     self.healthBar2 = document.createElement('div');
     self.healthBar2.setAttribute('class', 'health-bar')
     self.healthBar2.innerText = self.players[1];
-    self.gameElement.appendChild(self.healthBar2);
+    self.gameWrap.appendChild(self.healthBar2);
     healthWrap = document.createElement('div');
     healthWrap.setAttribute('id', 'health-wrap')
     healthWrap.appendChild(self.healthBar1);
     healthWrap.appendChild(self.healthBar2);
-    self.gameElement.appendChild(healthWrap);
+    self.gameWrap.appendChild(healthWrap);
 
 };
 
